@@ -15,6 +15,8 @@
 		15D642AD1B8EDFB30071A766 /* WWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D642AC1B8EDFB30071A766 /* WWeatherTests.swift */; };
 		15D642B71B8EEABE0071A766 /* WWHttpWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D642B61B8EEABE0071A766 /* WWHttpWork.swift */; };
 		15DB5BE41B91395B0054E52F /* JsonAnalyze.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB5BE31B91395B0054E52F /* JsonAnalyze.swift */; };
+		15DB5BE71B917C5C0054E52F /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 15DB5BE61B917C5C0054E52F /* UINavigationBar+Awesome.m */; };
+		15DB5BE91B918EA20054E52F /* NSDate+Unite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DB5BE81B918EA20054E52F /* NSDate+Unite.swift */; };
 		C9C6B7ACAB3ED4A2DC85508B /* libPods-WWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C34958C5173AAED75353C75 /* libPods-WWeather.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,9 @@
 		15D642B61B8EEABE0071A766 /* WWHttpWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WWHttpWork.swift; sourceTree = "<group>"; };
 		15D642B91B8EEE170071A766 /* WWeather-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WWeather-Bridging-Header.h"; sourceTree = "<group>"; };
 		15DB5BE31B91395B0054E52F /* JsonAnalyze.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonAnalyze.swift; sourceTree = "<group>"; };
+		15DB5BE51B917C5C0054E52F /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
+		15DB5BE61B917C5C0054E52F /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
+		15DB5BE81B918EA20054E52F /* NSDate+Unite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Unite.swift"; sourceTree = "<group>"; };
 		4C34958C5173AAED75353C75 /* libPods-WWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		950C422D8EF6F2246D501FC7 /* Pods-WWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WWeather/Pods-WWeather.debug.xcconfig"; sourceTree = "<group>"; };
 		A91C8C46BEE14595B28DA0ED /* Pods-WWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-WWeather/Pods-WWeather.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				15DB5BE31B91395B0054E52F /* JsonAnalyze.swift */,
+				15DB5BE81B918EA20054E52F /* NSDate+Unite.swift */,
+				15DB5BE51B917C5C0054E52F /* UINavigationBar+Awesome.h */,
+				15DB5BE61B917C5C0054E52F /* UINavigationBar+Awesome.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,6 +307,8 @@
 				15D642971B8EDFB30071A766 /* AppDelegate.swift in Sources */,
 				15DB5BE41B91395B0054E52F /* JsonAnalyze.swift in Sources */,
 				15D642B71B8EEABE0071A766 /* WWHttpWork.swift in Sources */,
+				15DB5BE91B918EA20054E52F /* NSDate+Unite.swift in Sources */,
+				15DB5BE71B917C5C0054E52F /* UINavigationBar+Awesome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

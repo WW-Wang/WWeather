@@ -36,20 +36,22 @@ class WWHttpWork: NSObject {
         return dic.objectForKey("ApiKey") as! String
     }
     
-    func queryCurrentWeather(city: NSString, callBack: (error: NSError, result: NSDictionary) -> ()) {
+    func queryCurrentWeather(city: NSString, callBack: (error: NSError?, result: NSDictionary?) -> ()) {
         var method: NSString = NSString(format: "weather?q=%@,cn", city)
         callMethodWithBlock(method, callBack: callBack)
     }
     
-    private func callMethodWithBlock(method: NSString, callBack: (error: NSError, result: NSDictionary) -> ()) {
-        let urlString:NSString = "\(baseURL)\(apiVersion)/\(method)&APPID=\(apiKey)&units=metric"
+    private func callMethodWithBlock(method: NSString, callBack: (error: NSError?, result: NSDictionary?) -> ()) {
+        let urlString:NSString = "\(baseURL)\(apiVersion)/\(method)&APPID=\(apiKey)&units=metric&lang=zh_cn"
         NSLog("URL: %@", urlString)
         let manager = AFHTTPRequestOperationManager()
         manager.GET(urlString as String, parameters: nil, success: { (operation, responseObject) in
                 let dic: NSDictionary = responseObject as! NSDictionary
                 NSLog("Result Json : %@", dic.JSONString()!)
+                callBack(error: nil, result: dic)
             }, failure: { (operation, error) in
                 NSLog("Error: %@", error.localizedDescription)
+                callBack(error: error, result: nil)
         })
     }
 }
