@@ -10,10 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var _httpWorking = WWHttpWork(apiKey: "ba702e365af74f316891b57d7211c0d0");
+    var _httpWorking = WWHttpWork()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        queryCurrentWeather("jinhua")
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,8 +23,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func getJson(sender: UIButton) {
-        _httpWorking.callMethodWithBlock("weather?q=jinhua,cn", callBack: { (error: NSError, result: NSDictionary) -> () in
+    func queryCurrentWeather(city: NSString) {
+        _httpWorking.queryCurrentWeather("jinhua", callBack: { (error: NSError, result: NSDictionary) -> () in
             
         })
     }

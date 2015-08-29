@@ -22,21 +22,34 @@ class WWHttpWork: NSObject {
     
     private var currentTemperatureFormat: WWTemperature?
     
-    required init(apiKey: NSString) {
+    override init() {
+        super.init()
         baseURL = "http://api.openweathermap.org/data/"
         apiVersion = "2.5"
-        self.apiKey = apiKey
         currentTemperatureFormat = WWTemperature.WWTempCelcius
+        apiKey = queryApiKey()
     }
     
+    func queryApiKey() -> NSString {
+        var plistPath: NSString = NSBundle.mainBundle().pathForResource("Info", ofType: "plist")!
+        var dic: NSDictionary = NSMutableDictionary(contentsOfFile: plistPath as String)!
+        return dic.objectForKey("ApiKey") as! String
+    }
     
-    func callMethodWithBlock(method: NSString, callBack: (error: NSError, result: NSDictionary) -> ()) {
-        let urlString:NSString = "\(baseURL)\(apiVersion)/\(method)&APPID=\(apiKey)&units=metric&lang=zh_cn"
+    func queryCurrentWeather(city: NSString, callBack: (error: NSError, result: NSDictionary) -> ()) {
+        var method: NSString = NSString(format: "weather?q=%@,cn", city)
+        callMethodWithBlock(method, callBack: callBack)
+    }
+    
+    private func callMethodWithBlock(method: NSString, callBack: (error: NSError, result: NSDictionary) -> ()) {
+        let urlString:NSString = "\(baseURL)\(apiVersion)/\(method)&APPID=\(apiKey)&units=metric"
+        NSLog("URL: %@", urlString)
         let manager = AFHTTPRequestOperationManager()
-        manager.GET(urlString as String, parameters: nil, success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                println("JSON: " + responseObject.description!)
-            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                println("Error: " + error.localizedDescription)
-            })
+        manager.GET(urlString as String, parameters: nil, success: { (operation, responseObject) in
+                let dic: NSDictionary = responseObject as! NSDictionary
+                NSLog("Result Json : %@", dic.JSONString()!)
+            }, failure: { (operation, error) in
+                NSLog("Error: %@", error.localizedDescription)
+        })
     }
 }
